@@ -7,50 +7,154 @@ index.html
 <title>Infinity Pods SP</title>
 
 <style>
-body {margin:0;font-family:Arial;background:#0d0d0d;color:#fff;}
-header {padding:20px;text-align:center;font-size:28px;background:#111;}
+body {
+  margin:0;
+  font-family:Arial;
+  background:#0d0d0d;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* fundo animado neon */
+body::before {
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,0,200,0.2) 0%, transparent 70%);
+  animation:moveBg 12s linear infinite;
+  z-index:-1;
+}
+
+@keyframes moveBg {
+  0% {transform:translate(0,0);} 
+  50% {transform:translate(-30%,-30%);} 
+  100% {transform:translate(0,0);} 
+}
+
+header {
+  padding:20px;
+  text-align:center;
+  font-size:30px;
+  background:#111;
+  letter-spacing:2px;
+  text-shadow:0 0 15px #ff00cc;
+}
 
 .banner {
-text-align:center;
-padding:60px;
-background:linear-gradient(270deg,#6a00ff,#ff00cc);
+  text-align:center;
+  padding:70px;
+  background:linear-gradient(270deg,#6a00ff,#ff00cc,#6a00ff);
+  background-size:400% 400%;
+  animation:gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+}
+
+.banner h1 {
+  animation:zoomIn 1.5s ease;
+}
+
+@keyframes zoomIn {
+  from {transform:scale(0.8); opacity:0;}
+  to {transform:scale(1); opacity:1;}
 }
 
 .produtos {
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-padding:20px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:20px;
 }
 
 .card {
-background:#1a1a1a;
-padding:15px;
-border-radius:10px;
-width:200px;
-text-align:center;
+  background:#1a1a1a;
+  padding:15px;
+  border-radius:12px;
+  width:200px;
+  text-align:center;
+  transition:0.3s;
+  box-shadow:0 0 10px rgba(255,0,200,0.2);
+  position:relative;
+}
+
+.card:hover {
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 0 30px rgba(255,0,200,1);
 }
 
 .card img {
-width:100%;
-border-radius:10px;
+  width:100%;
+  border-radius:10px;
 }
 
-.price {
-color:#00ffcc;
-margin:5px 0;
+.badge {
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:red;
+  padding:3px 6px;
+  font-size:12px;
+  border-radius:5px;
 }
 
 .btn {
-background:#25D366;
-color:white;
-padding:8px 12px;
-text-decoration:none;
-border-radius:5px;
-display:inline-block;
-margin-top:5px;
+  background:#25D366;
+  color:white;
+  padding:8px 12px;
+  text-decoration:none;
+  border-radius:5px;
+  display:inline-block;
+  margin-top:8px;
+  transition:0.3s;
 }
+
+.btn:hover {
+  background:#1ebe5d;
+}
+
+/* botão whatsapp flutuante */
+.whatsapp {
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50%;
+  font-size:20px;
+  text-decoration:none;
+  color:#fff;
+  box-shadow:0 0 15px #25D366;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {transform:scale(1);} 
+  50% {transform:scale(1.1);} 
+  100% {transform:scale(1);} 
+}
+
+/* partículas */
+.particle {
+  position:fixed;
+  width:5px;
+  height:5px;
+  background:#ff00cc;
+  border-radius:50%;
+  animation:float 6s infinite;
+}
+
+@keyframes float {
+  0% {transform:translateY(100vh); opacity:0;}
+  50% {opacity:1;}
+  100% {transform:translateY(-10vh); opacity:0;}
+}
+
 </style>
 </head>
 
@@ -65,34 +169,42 @@ margin-top:5px;
 <div class="produtos">
 
 <div class="card">
+<div class="badge">🔥 TOP</div>
 <img src="ignite.jpg">
 <h3>Ignite V400</h3>
-<div class="price">R$ 150</div>
 <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
 </div>
 
 <div class="card">
 <img src="geekbar.jpg">
 <h3>Geek Bar</h3>
-<div class="price">R$ 130</div>
 <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
 </div>
 
 <div class="card">
+<div class="badge">🔥 MAIS VENDIDO</div>
 <img src="elfbar.jpg">
 <h3>Elf Bar</h3>
-<div class="price">R$ 120</div>
 <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
 </div>
 
 <div class="card">
 <img src="nikbar.jpg">
 <h3>Nikbar</h3>
-<div class="price">R$ 140</div>
 <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
 </div>
 
 </div>
+
+<!-- partículas -->
+<div class="particle" style="left:10%; animation-delay:0s;"></div>
+<div class="particle" style="left:30%; animation-delay:2s;"></div>
+<div class="particle" style="left:50%; animation-delay:4s;"></div>
+<div class="particle" style="left:70%; animation-delay:1s;"></div>
+<div class="particle" style="left:90%; animation-delay:3s;"></div>
+
+<!-- botão whatsapp -->
+<a class="whatsapp" href="https://wa.me/5511948386280">💬</a>
 
 </body>
 </html>
