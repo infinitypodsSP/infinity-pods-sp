@@ -1,0 +1,119 @@
+index.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Pods SP</title>
+  <style>
+    body {margin:0;font-family:Arial;background:#0d0d0d;color:#fff;overflow-x:hidden;}
+    header {padding:20px;text-align:center;font-size:28px;font-weight:bold;background:#111;letter-spacing:2px;}
+
+    .banner {
+      text-align:center;
+      padding:80px 20px;
+      background:linear-gradient(270deg,#6a00ff,#ff00cc,#6a00ff);
+      background-size:600% 600%;
+      animation:gradientMove 10s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position:0% 50%;}
+      50% {background-position:100% 50%;}
+      100% {background-position:0% 50%;}
+    }
+
+    .banner h1 {font-size:42px;margin:0;animation:fadeIn 2s ease;}
+
+    @keyframes fadeIn {
+      from {opacity:0; transform:translateY(20px);} 
+      to {opacity:1; transform:translateY(0);} 
+    }
+
+    .produtos {display:flex;flex-wrap:wrap;justify-content:center;padding:30px;gap:25px;}
+
+    .card {
+      background:#1a1a1a;
+      border-radius:15px;
+      padding:15px;
+      width:220px;
+      text-align:center;
+      transition:0.3s;
+      animation:fadeIn 1.5s ease;
+    }
+
+    .card:hover {
+      transform:translateY(-10px) scale(1.05);
+      box-shadow:0 0 20px rgba(255,0,200,0.6);
+    }
+
+    .card img {width:100%;border-radius:10px;}
+
+    .btn {
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 15px;
+      background:#25D366;
+      color:#fff;
+      text-decoration:none;
+      border-radius:8px;
+      transition:0.3s;
+    }
+
+    .btn:hover {background:#1ebe5d;}
+
+    footer {text-align:center;padding:20px;background:#111;margin-top:20px;font-size:14px;}
+
+    /* efeito fumaça */
+    .smoke {
+      position:fixed;
+      bottom:-50px;
+      width:100%;
+      height:100px;
+      background:radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation:smokeUp 8s infinite linear;
+    }
+
+    @keyframes smokeUp {
+      0% {transform:translateY(0); opacity:0.2;}
+      50% {opacity:0.4;}
+      100% {transform:translateY(-300px); opacity:0;}
+    }
+  </style>
+</head>
+<body>
+
+<header>Infinity Pods SP</header>
+
+<div class="banner">
+  <h1>O nível é infinito 💨</h1>
+</div>
+
+<div class="produtos">
+  <div class="card">
+    <img src="https://via.placeholder.com/200" alt="Pod">
+    <h3>Pod Ice Mint</h3>
+    <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200" alt="Pod">
+    <h3>Pod Mango Ice</h3>
+    <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200" alt="Pod">
+    <h3>Pod Peach Ice</h3>
+    <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
+  </div>
+</div>
+
+<div class="smoke"></div>
+
+<footer>
+  © 2026 Infinity Pods SP - Todos os direitos reservados
+</footer>
+
+</body>
+</html>
