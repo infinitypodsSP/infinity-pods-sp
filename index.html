@@ -9,7 +9,6 @@ index.html
 <style>
 body {margin:0;font-family:Arial;background:#0d0d0d;color:#fff;overflow-x:hidden;}
 
-/* fundo animado avançado */
 body::before {
   content:"";
   position:fixed;
@@ -20,46 +19,16 @@ body::before {
   z-index:-1;
 }
 
-body::after {
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle, rgba(0,255,255,0.1) 0%, transparent 70%);
-  animation:moveBg2 18s linear infinite;
-  z-index:-1;
-}
-
 @keyframes moveBg {
   0% {transform:translate(0,0);} 
   50% {transform:translate(-30%,-30%);} 
   100% {transform:translate(0,0);} 
 }
 
-@keyframes moveBg2 {
-  0% {transform:translate(0,0);} 
-  50% {transform:translate(30%,-20%);} 
-  100% {transform:translate(0,0);} 
-}
+nav {display:flex;justify-content:center;gap:20px;background:#111;padding:15px;}
+nav a {color:#fff;text-decoration:none;font-weight:bold;}
 
-nav {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  background:#111;
-  padding:15px;
-}
-
-nav a {color:#fff;text-decoration:none;font-weight:bold;transition:0.3s;}
-nav a:hover {color:#ff00cc;}
-
-header {
-  padding:20px;
-  text-align:center;
-  font-size:30px;
-  background:#111;
-  text-shadow:0 0 15px #ff00cc;
-}
+header {padding:20px;text-align:center;font-size:30px;background:#111;text-shadow:0 0 15px #ff00cc;}
 
 .banner {
   padding:80px;
@@ -75,31 +44,17 @@ header {
   100% {background-position:0% 50%;}
 }
 
-.banner h1 {font-size:42px;animation:fadeUp 1.5s ease;}
-.banner p {animation:fadeUp 2s ease;}
-
-@keyframes fadeUp {
-  from {opacity:0; transform:translateY(20px);} 
-  to {opacity:1; transform:translateY(0);} 
-}
-
 .section {padding:50px 20px;text-align:center;}
 
-.produtos {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:25px;
-}
+.produtos {display:flex;flex-wrap:wrap;justify-content:center;gap:25px;}
 
 .card {
   background:#1a1a1a;
   padding:15px;
   border-radius:12px;
-  width:210px;
+  width:220px;
   position:relative;
   transition:0.3s;
-  animation:fadeUp 1s ease;
 }
 
 .card:hover {transform:scale(1.07);box-shadow:0 0 30px #ff00cc;}
@@ -119,15 +74,13 @@ header {
 .btn {
   background:#25D366;
   color:#fff;
-  padding:8px 12px;
+  padding:10px 14px;
   border-radius:5px;
   text-decoration:none;
   display:inline-block;
   margin-top:8px;
-  transition:0.3s;
+  font-weight:bold;
 }
-
-.btn:hover {background:#1ebe5d;}
 
 footer {background:#111;text-align:center;padding:20px;}
 
@@ -149,6 +102,9 @@ footer {background:#111;text-align:center;padding:20px;}
   100% {transform:scale(1);} 
 }
 
+.fade {opacity:0;transform:translateY(20px);transition:1s;}
+.fade.show {opacity:1;transform:translateY(0);} 
+
 </style>
 </head>
 
@@ -166,10 +122,11 @@ footer {background:#111;text-align:center;padding:20px;}
 
 <div id="home" class="banner">
 <h1>OS MAIS BRABOS DE SP 💨</h1>
-<p>Qualidade premium • Entrega rápida • Confiança total</p>
+<p>🚀 Entrega no mesmo dia • Atendimento rápido</p>
+<p>+500 clientes satisfeitos em SP 🔥</p>
 </div>
 
-<div id="produtos" class="section">
+<div id="produtos" class="section fade">
 <h2>🔥 Produtos</h2>
 <div class="produtos">
 
@@ -177,51 +134,54 @@ footer {background:#111;text-align:center;padding:20px;}
 <div class="badge">🔥 MAIS VENDIDO</div>
 <img src="ignite.jpg">
 <h3>Ignite V400</h3>
-<a class="btn" href="https://wa.me/5511948386280">Comprar</a>
+<p>Alta duração • Sabor intenso • Premium</p>
+<a class="btn" href="https://wa.me/5511948386280?text=Quero%20o%20Ignite%20V400">🔥 Quero o mais vendido</a>
 </div>
 
 <div class="card">
 <div class="badge">💎 TOP</div>
 <img src="elfbar.jpg">
 <h3>Elf Bar</h3>
-<a class="btn" href="https://wa.me/5511948386280">Comprar</a>
+<p>Compacto • Muito sabor • Alta qualidade</p>
+<a class="btn" href="https://wa.me/5511948386280?text=Quero%20o%20ElfBar">💬 Comprar agora</a>
 </div>
 
 <div class="card">
 <img src="geekbar.jpg">
 <h3>Geek Bar</h3>
-<a class="btn" href="https://wa.me/5511948386280">Comprar</a>
+<p>Design moderno • Ótima performance</p>
+<a class="btn" href="https://wa.me/5511948386280">💬 Comprar agora</a>
 </div>
 
 <div class="card">
 <img src="nikbar.jpg">
 <h3>Nikbar</h3>
-<a class="btn" href="https://wa.me/5511948386280">Comprar</a>
+<p>Alta durabilidade • Sabor forte</p>
+<a class="btn" href="https://wa.me/5511948386280">💬 Comprar agora</a>
 </div>
 
 </div>
 </div>
 
-<div id="lancamentos" class="section">
+<div id="lancamentos" class="section fade">
 <h2>🚀 Lançamentos</h2>
 <p>Novos produtos chegando em breve... 👀</p>
 </div>
 
-<div id="sobre" class="section">
+<div id="sobre" class="section fade">
 <h2>💨 Sobre nós</h2>
 <p>
-A Infinity Pods SP nasceu com o objetivo de trazer os melhores pods do mercado com qualidade premium e entrega rápida em toda São Paulo. Trabalhamos apenas com produtos selecionados, focando em desempenho, durabilidade e experiência.
+A Infinity Pods SP é referência em pods premium em São Paulo. Trabalhamos com os modelos mais vendidos e buscamos sempre trazer novidades para nossos clientes.
 <br><br>
-Nosso compromisso é oferecer confiança total para nossos clientes, com atendimento rápido e suporte direto pelo WhatsApp. Estamos sempre atualizando nosso catálogo com os modelos mais desejados e lançamentos do momento.
-<br><br>
-Se você busca qualidade, agilidade e um atendimento diferenciado, você está no lugar certo.
+Nosso foco é qualidade, rapidez e confiança. Atendemos direto pelo WhatsApp com agilidade e garantimos uma experiência diferenciada.
 </p>
 </div>
 
-<div id="contato" class="section">
+<div id="contato" class="section fade">
 <h2>📲 Contato</h2>
 <p>WhatsApp: (11) 94838-6280</p>
-<p><a href="https://www.instagram.com/infinitypodssp" target="_blank" style="color:#ff00cc;">📸 Nosso Instagram</a></p>
+<p>📸 Veja nossos produtos reais no Instagram</p>
+<p><a href="https://www.instagram.com/infinitypodssp" target="_blank" style="color:#ff00cc;">@infinitypodssp</a></p>
 </div>
 
 <footer>
@@ -229,6 +189,18 @@ Se você busca qualidade, agilidade e um atendimento diferenciado, você está n
 </footer>
 
 <a class="whatsapp" href="https://wa.me/5511948386280">💬</a>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
