@@ -1,133 +1,9 @@
 index.html
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infinity Pods SP</title>
-
-<style>
-body {margin:0;font-family:Arial;background:#0d0d0d;color:#fff;overflow-x:hidden;}
-
-body::before {
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle, rgba(255,0,200,0.15) 0%, transparent 70%);
-  animation:moveBg 12s linear infinite;
-  z-index:-1;
-}
-
-@keyframes moveBg {
-  0% {transform:translate(0,0);} 
-  50% {transform:translate(-30%,-30%);} 
-  100% {transform:translate(0,0);} 
-}
-
-nav {display:flex;justify-content:center;gap:20px;background:#111;padding:15px;}
-nav a {color:#fff;text-decoration:none;font-weight:bold;}
-
-header {padding:20px;text-align:center;font-size:30px;background:#111;text-shadow:0 0 15px #ff00cc;}
-
-.banner {
-  padding:80px;
-  text-align:center;
-  background:linear-gradient(270deg,#6a00ff,#ff00cc,#6a00ff);
-  background-size:400% 400%;
-  animation:gradientMove 8s ease infinite;
-}
-
-@keyframes gradientMove {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
-}
-
-.section {padding:50px 20px;text-align:center;}
-
-.produtos {display:flex;flex-wrap:wrap;justify-content:center;gap:25px;}
-
-.card {
-  background:#1a1a1a;
-  padding:15px;
-  border-radius:12px;
-  width:220px;
-  position:relative;
-  transition:0.3s;
-}
-
-.card:hover {transform:scale(1.07);box-shadow:0 0 30px #ff00cc;}
-
-.card img {width:100%;border-radius:10px;}
-
-.badge {
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:linear-gradient(45deg,#ff0000,#ff9900);
-  padding:4px 8px;
-  font-size:12px;
-  border-radius:6px;
-}
-
-.btn {
-  background:#25D366;
-  color:#fff;
-  padding:10px 14px;
-  border-radius:5px;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:8px;
-  font-weight:bold;
-}
-
-footer {background:#111;text-align:center;padding:20px;}
-
-.whatsapp {
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  padding:15px;
-  border-radius:50%;
-  color:#fff;
-  text-decoration:none;
-  animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% {transform:scale(1);} 
-  50% {transform:scale(1.15);} 
-  100% {transform:scale(1);} 
-}
-
-.fade {opacity:0;transform:translateY(20px);transition:1s;}
-.fade.show {opacity:1;transform:translateY(0);} 
-
-</style>
-</head>
-
-<body>
-
-<header>🔥 Infinity Pods SP 🔥</header>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#produtos">Produtos</a>
-<a href="#lancamentos">Lançamentos</a>
-<a href="#sobre">Sobre</a>
-<a href="#contato">Contato</a>
-</nav>
-
-<div id="home" class="banner">
-<h1>OS MAIS BRABOS DE SP 💨</h1>
-<p>🚀 Entrega no mesmo dia • Atendimento rápido</p>
-<p>+500 clientes satisfeitos em SP 🔥</p>
-</div>
+<!-- SUBSTITUA APENAS A PARTE DOS PRODUTOS POR ESSA -->
 
 <div id="produtos" class="section fade">
 <h2>🔥 Produtos</h2>
+
 <div class="produtos">
 
 <div class="card">
@@ -160,47 +36,38 @@ footer {background:#111;text-align:center;padding:20px;}
 <a class="btn" href="https://wa.me/5511948386280">💬 Comprar agora</a>
 </div>
 
-</div>
-</div>
+<!-- NOVOS -->
 
-<div id="lancamentos" class="section fade">
-<h2>🚀 Lançamentos</h2>
-<p>Novos produtos chegando em breve... 👀</p>
-</div>
-
-<div id="sobre" class="section fade">
-<h2>💨 Sobre nós</h2>
-<p>
-A Infinity Pods SP é referência em pods premium em São Paulo. Trabalhamos com os modelos mais vendidos e buscamos sempre trazer novidades para nossos clientes.
-<br><br>
-Nosso foco é qualidade, rapidez e confiança. Atendemos direto pelo WhatsApp com agilidade e garantimos uma experiência diferenciada.
-</p>
+<div class="card">
+<div class="badge">🔥 NOVO</div>
+<img src="lostmary.jpg">
+<h3>Lost Mary</h3>
+<p>Sabor intenso • Design moderno • Premium</p>
+<a class="btn" href="https://wa.me/5511948386280?text=Quero%20o%20Lost%20Mary">💬 Comprar agora</a>
 </div>
 
-<div id="contato" class="section fade">
-<h2>📲 Contato</h2>
-<p>WhatsApp: (11) 94838-6280</p>
-<p>📸 Veja nossos produtos reais no Instagram</p>
-<p><a href="https://www.instagram.com/infinitypodssp" target="_blank" style="color:#ff00cc;">@infinitypodssp</a></p>
+<div class="card">
+<div class="badge">💨 TOP</div>
+<img src="oxbar.jpg">
+<h3>Oxbar</h3>
+<p>Alta performance • Longa duração</p>
+<a class="btn" href="https://wa.me/5511948386280?text=Quero%20o%20Oxbar">💬 Comprar agora</a>
 </div>
 
-<footer>
-© 2026 Infinity Pods SP
-</footer>
+<div class="card">
+<div class="badge">⚡ LANÇAMENTO</div>
+<img src="hyde.jpg">
+<h3>Hyde</h3>
+<p>Compacto • Forte • Muito procurado</p>
+<a class="btn" href="https://wa.me/5511948386280?text=Quero%20o%20Hyde">💬 Comprar agora</a>
+</div>
 
-<a class="whatsapp" href="https://wa.me/5511948386280">💬</a>
+<div class="card">
+<img src="blacksheep.jpg">
+<h3>Black Sheep</h3>
+<p>Premium • Sabores exclusivos</p>
+<a class="btn" href="https://wa.me/5511948386280?text=Quero%20o%20Black%20Sheep">💬 Comprar agora</a>
+</div>
 
-<script>
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-  faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 50){
-      el.classList.add('show');
-    }
-  });
-});
-</script>
-
-</body>
-</html>
+</div>
+</div>
