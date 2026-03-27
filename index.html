@@ -11,57 +11,35 @@ index.html
 body {
   margin:0;
   font-family:Arial;
-  background:#0d0d0d;
+  background:#000;
   color:#fff;
   overflow-x:hidden;
 }
 
-/* FUNDO ANIMADO */
+/* FUNDO COM FUMAÇA REAL */
 body::before {
   content:"";
   position:fixed;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle, rgba(255,0,200,0.2) 0%, transparent 70%);
-  animation:moveBg 15s linear infinite;
+  width:100%;
+  height:100%;
+  background:url("fumaça.jpg") center/cover no-repeat;
+  opacity:0.25;
+  animation:zoom 20s infinite alternate;
   z-index:-2;
 }
 
-@keyframes moveBg {
-  0% {transform:translate(0,0);} 
-  50% {transform:translate(-25%,-25%);} 
-  100% {transform:translate(0,0);} 
+@keyframes zoom {
+  0% {transform:scale(1);}
+  100% {transform:scale(1.2);}
 }
 
-/* FUMAÇA (SEM IMAGEM) */
-.smoke {
+/* CAMADA ESCURA */
+.overlay {
   position:fixed;
   width:100%;
   height:100%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.04), transparent 40%),
-    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03), transparent 50%);
-  animation:smokeMove 20s infinite alternate;
+  background:rgba(0,0,0,0.6);
   z-index:-1;
-}
-
-@keyframes smokeMove {
-  0% {transform:scale(1) translate(0,0);}
-  100% {transform:scale(1.3) translate(-20px, -20px);}
-}
-
-/* PARTÍCULAS */
-.particle {
-  position:fixed;
-  font-size:20px;
-  animation:float 10s linear infinite;
-  opacity:0.6;
-}
-
-@keyframes float {
-  0% {transform:translateY(100vh);}
-  100% {transform:translateY(-10vh);}
 }
 
 /* HEADER */
@@ -91,15 +69,27 @@ nav a {
 .banner {
   padding:100px 20px;
   text-align:center;
-  background:linear-gradient(270deg,#6a00ff,#ff00cc,#6a00ff);
-  background-size:400% 400%;
-  animation:gradientMove 8s ease infinite;
 }
 
-@keyframes gradientMove {
-  0% {background-position:0% 50%;}
-  50% {background-position:100% 50%;}
-  100% {background-position:0% 50%;}
+/* IMAGEM DO POD */
+.pod-img {
+  width:220px;
+  margin:20px auto;
+  display:block;
+  animation:float 4s ease-in-out infinite;
+  filter:drop-shadow(0 0 20px #ff00cc);
+}
+
+@keyframes float {
+  0% {transform:translateY(0);}
+  50% {transform:translateY(-15px);}
+  100% {transform:translateY(0);}
+}
+
+/* TEXTO */
+h1 {
+  font-size:40px;
+  text-shadow:0 0 20px #ff00cc;
 }
 
 .section {
@@ -121,11 +111,11 @@ nav a {
 }
 
 .btn:hover {
-  transform:scale(1.08);
+  transform:scale(1.1);
   box-shadow:0 0 20px #25D366;
 }
 
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
 .whatsapp {
   position:fixed;
   bottom:20px;
@@ -144,10 +134,6 @@ nav a {
   100% {transform:scale(1);} 
 }
 
-/* FADE */
-.fade {opacity:0;transform:translateY(20px);transition:1s;}
-.fade.show {opacity:1;transform:translateY(0);} 
-
 footer {
   background:#111;
   text-align:center;
@@ -158,57 +144,38 @@ footer {
 
 <body>
 
-<div class="smoke"></div>
-
-<!-- PARTÍCULAS -->
-<div class="particle" style="left:10%;animation-delay:0s;">💨</div>
-<div class="particle" style="left:30%;animation-delay:2s;">💨</div>
-<div class="particle" style="left:50%;animation-delay:4s;">💨</div>
-<div class="particle" style="left:70%;animation-delay:1s;">💨</div>
-<div class="particle" style="left:90%;animation-delay:3s;">💨</div>
+<div class="overlay"></div>
 
 <header>🔥 Infinity Pods SP 🔥</header>
 
 <nav>
-<a href="#home">Home</a>
-<a href="#status">Status</a>
-<a href="#sobre">Sobre</a>
-<a href="#contato">Contato</a>
+<a href="#">Home</a>
+<a href="#">Status</a>
+<a href="#">Contato</a>
 </nav>
 
-<div id="home" class="banner">
+<div class="banner">
+
 <h1>🚧 EM BREVE ONLINE 🚧</h1>
-<p>🔥 Estamos preparando algo absurdo pra você 💨</p>
-</div>
 
-<div id="status" class="section fade">
-<h2>⚠️ Estamos em construção</h2>
+<img src="pod.png" class="pod-img">
 
-<p style="max-width:700px;margin:auto;font-size:18px;line-height:1.6;">
-A <b>Infinity Pods SP</b> está passando por melhorias para trazer a melhor experiência possível 🚀<br><br>
-
-💨 Novos produtos<br>
-🔥 Promoções exclusivas<br>
-⚡ Entrega rápida<br><br>
-
-⏳ Em breve estaremos <b>100% online</b>
+<p style="font-size:18px;">
+🔥 Estamos preparando algo absurdo pra você 💨<br>
+⏳ Em breve loja completa no ar
 </p>
 
 <a class="btn" href="https://wa.me/5511948386280">
 💬 Falar no WhatsApp
 </a>
+
 </div>
 
-<div id="sobre" class="section fade">
-<h2>💨 Sobre</h2>
-<p style="max-width:700px;margin:auto;">
-Os pods mais brabos de SP, com qualidade, rapidez e atendimento direto.
+<div class="section">
+<h2>⚠️ Em construção</h2>
+<p style="max-width:600px;margin:auto;">
+Estamos trazendo os pods mais brabos de SP com entrega rápida e qualidade premium.
 </p>
-</div>
-
-<div id="contato" class="section fade">
-<h2>📲 Contato</h2>
-<p>WhatsApp: (11) 94838-6280</p>
 </div>
 
 <footer>
@@ -216,18 +183,6 @@ Os pods mais brabos de SP, com qualidade, rapidez e atendimento direto.
 </footer>
 
 <a class="whatsapp" href="https://wa.me/5511948386280">💬</a>
-
-<script>
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-  faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 50){
-      el.classList.add('show');
-    }
-  });
-});
-</script>
 
 </body>
 </html>
