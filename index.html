@@ -8,33 +8,23 @@ index.html
 <title>Infinity Pods SP</title>
 
 <style>
-body {
-  margin:0;
-  font-family:Arial;
-  background:#000;
-  color:#fff;
-  overflow-x:hidden;
-}
+body {margin:0;font-family:Arial;background:#0d0d0d;color:#fff;overflow-x:hidden;}
 
-/* FUNDO COM FUMAÇA REAL */
+/* 🔥 FUNDO COM SUA FUMAÇA */
 body::before {
   content:"";
   position:fixed;
   width:100%;
   height:100%;
-  background:url("fumaça.jpg") center/cover no-repeat;
+  background:url("fumaca.jpg") center/cover no-repeat;
   opacity:0.25;
-  animation:zoom 20s infinite alternate;
+  animation:zoomBg 20s ease-in-out infinite alternate;
   z-index:-2;
 }
 
-@keyframes zoom {
-  0% {transform:scale(1);}
-  100% {transform:scale(1.2);}
-}
-
-/* CAMADA ESCURA */
-.overlay {
+/* camada escura pra manter leitura */
+body::after {
+  content:"";
   position:fixed;
   width:100%;
   height:100%;
@@ -42,7 +32,14 @@ body::before {
   z-index:-1;
 }
 
-/* HEADER */
+@keyframes zoomBg {
+  0% {transform:scale(1);}
+  100% {transform:scale(1.1);}
+}
+
+nav {display:flex;justify-content:center;gap:20px;background:#111;padding:15px;}
+nav a {color:#fff;text-decoration:none;font-weight:bold;}
+
 header {
   padding:20px;
   text-align:center;
@@ -51,58 +48,27 @@ header {
   text-shadow:0 0 15px #ff00cc;
 }
 
-/* NAV */
-nav {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  background:#111;
-  padding:15px;
-}
-nav a {
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-/* BANNER */
 .banner {
-  padding:100px 20px;
+  padding:80px;
   text-align:center;
+  background:linear-gradient(270deg,#6a00ff,#ff00cc,#6a00ff);
+  background-size:400% 400%;
+  animation:gradientMove 8s ease infinite;
 }
 
-/* IMAGEM DO POD */
-.pod-img {
-  width:220px;
-  margin:20px auto;
-  display:block;
-  animation:float 4s ease-in-out infinite;
-  filter:drop-shadow(0 0 20px #ff00cc);
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
 }
 
-@keyframes float {
-  0% {transform:translateY(0);}
-  50% {transform:translateY(-15px);}
-  100% {transform:translateY(0);}
-}
+.section {padding:50px 20px;text-align:center;}
 
-/* TEXTO */
-h1 {
-  font-size:40px;
-  text-shadow:0 0 20px #ff00cc;
-}
-
-.section {
-  padding:60px 20px;
-  text-align:center;
-}
-
-/* BOTÃO */
 .btn {
   background:linear-gradient(45deg,#25D366,#1ebe5d);
   color:#fff;
-  padding:14px 20px;
-  border-radius:8px;
+  padding:12px 18px;
+  border-radius:6px;
   text-decoration:none;
   display:inline-block;
   margin-top:20px;
@@ -111,11 +77,12 @@ h1 {
 }
 
 .btn:hover {
-  transform:scale(1.1);
-  box-shadow:0 0 20px #25D366;
+  transform:scale(1.05);
+  box-shadow:0 0 15px #25D366;
 }
 
-/* WHATSAPP */
+footer {background:#111;text-align:center;padding:20px;}
+
 .whatsapp {
   position:fixed;
   bottom:20px;
@@ -130,39 +97,42 @@ h1 {
 
 @keyframes pulse {
   0% {transform:scale(1);} 
-  50% {transform:scale(1.2);} 
+  50% {transform:scale(1.15);} 
   100% {transform:scale(1);} 
 }
 
-footer {
-  background:#111;
-  text-align:center;
-  padding:20px;
-}
+.fade {opacity:0;transform:translateY(20px);transition:1s;}
+.fade.show {opacity:1;transform:translateY(0);} 
 </style>
 </head>
 
 <body>
 
-<div class="overlay"></div>
-
 <header>🔥 Infinity Pods SP 🔥</header>
 
 <nav>
-<a href="#">Home</a>
-<a href="#">Status</a>
-<a href="#">Contato</a>
+<a href="#home">Home</a>
+<a href="#produtos">Status</a>
+<a href="#sobre">Sobre</a>
+<a href="#contato">Contato</a>
 </nav>
 
-<div class="banner">
-
+<div id="home" class="banner">
 <h1>🚧 EM BREVE ONLINE 🚧</h1>
+<p>🔥 Estamos preparando algo absurdo pra você</p>
+</div>
 
-<img src="pod.png" class="pod-img">
+<div id="produtos" class="section fade">
+<h2>🚧 Estamos em construção</h2>
 
-<p style="font-size:18px;">
-🔥 Estamos preparando algo absurdo pra você 💨<br>
-⏳ Em breve loja completa no ar
+<p style="max-width:700px;margin:auto;line-height:1.6;font-size:18px;">
+🔥 A Infinity Pods SP está passando por melhorias!<br><br>
+
+Estamos preparando uma experiência ainda mais braba pra você 🚀💨<br><br>
+
+⏳ Em breve estaremos <b>totalmente online</b> com novos produtos, promoções e muito mais!<br><br>
+
+📲 Enquanto isso, fale com a gente no WhatsApp para mais informações.
 </p>
 
 <a class="btn" href="https://wa.me/5511948386280">
@@ -171,11 +141,24 @@ footer {
 
 </div>
 
-<div class="section">
-<h2>⚠️ Em construção</h2>
-<p style="max-width:600px;margin:auto;">
-Estamos trazendo os pods mais brabos de SP com entrega rápida e qualidade premium.
+<div id="sobre" class="section fade">
+<h2>💨 Sobre a Infinity Pods SP</h2>
+
+<p style="max-width:700px;margin:auto;line-height:1.6;font-size:16px;">
+A <b>Infinity Pods SP</b> nasceu com o objetivo de trazer os <b>pods mais brabos de São Paulo</b>, sempre focando em qualidade, variedade e atendimento rápido.
+
+<br><br>
+
+🚀 <b>Entrega rápida em SP</b><br>
+⚡ <b>Atendimento direto e sem enrolação</b><br>
+🔥 <b>Só trabalhamos com produtos de qualidade</b>
 </p>
+</div>
+
+<div id="contato" class="section fade">
+<h2>📲 Contato</h2>
+<p>WhatsApp: (11) 94838-6280</p>
+<p><a href="https://www.instagram.com/infinitypodssp" target="_blank" style="color:#ff00cc;">@infinitypodssp</a></p>
 </div>
 
 <footer>
@@ -183,6 +166,18 @@ Estamos trazendo os pods mais brabos de SP com entrega rápida e qualidade premi
 </footer>
 
 <a class="whatsapp" href="https://wa.me/5511948386280">💬</a>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 50){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
