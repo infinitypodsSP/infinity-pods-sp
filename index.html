@@ -7,29 +7,20 @@ index.html
 <title>Infinity Pods SP</title>
 
 <style>
-body {
-  margin:0;
-  font-family:Arial;
-  background:#0d0d0d;
+body {margin:0;font-family:Arial;background:#0d0d0d;color:#fff;overflow-x:hidden;}
+
+nav {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  background:#111;
+  padding:15px;
+}
+
+nav a {
   color:#fff;
-  overflow-x:hidden;
-}
-
-/* fundo animado */
-body::before {
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle, rgba(255,0,200,0.2) 0%, transparent 70%);
-  animation:moveBg 12s linear infinite;
-  z-index:-1;
-}
-
-@keyframes moveBg {
-  0% {transform:translate(0,0);} 
-  50% {transform:translate(-30%,-30%);} 
-  100% {transform:translate(0,0);} 
+  text-decoration:none;
+  font-weight:bold;
 }
 
 header {
@@ -37,13 +28,12 @@ header {
   text-align:center;
   font-size:30px;
   background:#111;
-  letter-spacing:2px;
   text-shadow:0 0 15px #ff00cc;
 }
 
 .banner {
-  text-align:center;
   padding:80px;
+  text-align:center;
   background:linear-gradient(270deg,#6a00ff,#ff00cc,#6a00ff);
   background-size:400% 400%;
   animation:gradientMove 8s ease infinite;
@@ -55,22 +45,13 @@ header {
   100% {background-position:0% 50%;}
 }
 
-.banner h1 {
-  font-size:40px;
-  animation:zoomIn 1.5s ease;
-}
-
-@keyframes zoomIn {
-  from {transform:scale(0.8); opacity:0;}
-  to {transform:scale(1); opacity:1;}
-}
+.section {padding:40px 20px;text-align:center;}
 
 .produtos {
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:25px;
-  padding:30px;
 }
 
 .card {
@@ -78,21 +59,13 @@ header {
   padding:15px;
   border-radius:12px;
   width:210px;
-  text-align:center;
-  transition:0.3s;
-  box-shadow:0 0 15px rgba(255,0,200,0.2);
   position:relative;
+  transition:0.3s;
 }
 
-.card:hover {
-  transform:translateY(-12px) scale(1.07);
-  box-shadow:0 0 35px rgba(255,0,200,1);
-}
+.card:hover {transform:scale(1.07);box-shadow:0 0 30px #ff00cc;}
 
-.card img {
-  width:100%;
-  border-radius:10px;
-}
+.card img {width:100%;border-radius:10px;}
 
 .badge {
   position:absolute;
@@ -102,25 +75,24 @@ header {
   padding:4px 8px;
   font-size:12px;
   border-radius:6px;
-  font-weight:bold;
 }
 
 .btn {
   background:#25D366;
-  color:white;
+  color:#fff;
   padding:8px 12px;
-  text-decoration:none;
   border-radius:5px;
+  text-decoration:none;
   display:inline-block;
   margin-top:8px;
-  transition:0.3s;
 }
 
-.btn:hover {
-  background:#1ebe5d;
+footer {
+  background:#111;
+  text-align:center;
+  padding:20px;
 }
 
-/* botão whatsapp */
 .whatsapp {
   position:fixed;
   bottom:20px;
@@ -128,33 +100,8 @@ header {
   background:#25D366;
   padding:15px;
   border-radius:50%;
-  font-size:20px;
-  text-decoration:none;
   color:#fff;
-  box-shadow:0 0 20px #25D366;
-  animation:pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% {transform:scale(1);} 
-  50% {transform:scale(1.15);} 
-  100% {transform:scale(1);} 
-}
-
-/* partículas */
-.particle {
-  position:fixed;
-  width:5px;
-  height:5px;
-  background:#ff00cc;
-  border-radius:50%;
-  animation:float 6s infinite;
-}
-
-@keyframes float {
-  0% {transform:translateY(100vh); opacity:0;}
-  50% {opacity:1;}
-  100% {transform:translateY(-10vh); opacity:0;}
+  text-decoration:none;
 }
 
 </style>
@@ -164,10 +111,21 @@ header {
 
 <header>🔥 Infinity Pods SP 🔥</header>
 
-<div class="banner">
+<nav>
+<a href="#home">Home</a>
+<a href="#produtos">Produtos</a>
+<a href="#lancamentos">Lançamentos</a>
+<a href="#sobre">Sobre</a>
+<a href="#contato">Contato</a>
+</nav>
+
+<div id="home" class="banner">
 <h1>OS MAIS BRABOS DE SP 💨</h1>
+<p>Qualidade premium • Entrega rápida</p>
 </div>
 
+<div id="produtos" class="section">
+<h2>🔥 Produtos</h2>
 <div class="produtos">
 
 <div class="card">
@@ -184,6 +142,13 @@ header {
 <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
 </div>
 
+</div>
+</div>
+
+<div id="lancamentos" class="section">
+<h2>🚀 Lançamentos</h2>
+<div class="produtos">
+
 <div class="card">
 <img src="geekbar.jpg">
 <h3>Geek Bar</h3>
@@ -197,12 +162,24 @@ header {
 </div>
 
 </div>
+</div>
 
-<div class="particle" style="left:10%; animation-delay:0s;"></div>
-<div class="particle" style="left:30%; animation-delay:2s;"></div>
-<div class="particle" style="left:50%; animation-delay:4s;"></div>
-<div class="particle" style="left:70%; animation-delay:1s;"></div>
-<div class="particle" style="left:90%; animation-delay:3s;"></div>
+<div id="sobre" class="section">
+<h2>💨 Sobre nós</h2>
+<p>Especialistas em pods premium com entrega rápida em SP.</p>
+</div>
+
+<div id="contato" class="section">
+<h2>📲 Contato</h2>
+<p>WhatsApp: (11) 94838-6280</p>
+<p>
+<a href="https://www.instagram.com/infinitypodssp?igsh=MWp4dzZhNDdtaHM2aA%3D%3D&utm_source=qr" target="_blank" style="color:#ff00cc;">📸 Nosso Instagram</a>
+</p>
+</div>
+
+<footer>
+© 2026 Infinity Pods SP
+</footer>
 
 <a class="whatsapp" href="https://wa.me/5511948386280">💬</a>
 
