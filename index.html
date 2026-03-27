@@ -9,6 +9,39 @@ index.html
 <style>
 body {margin:0;font-family:Arial;background:#0d0d0d;color:#fff;overflow-x:hidden;}
 
+/* fundo animado avançado */
+body::before {
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,0,200,0.15) 0%, transparent 70%);
+  animation:moveBg 12s linear infinite;
+  z-index:-1;
+}
+
+body::after {
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(0,255,255,0.1) 0%, transparent 70%);
+  animation:moveBg2 18s linear infinite;
+  z-index:-1;
+}
+
+@keyframes moveBg {
+  0% {transform:translate(0,0);} 
+  50% {transform:translate(-30%,-30%);} 
+  100% {transform:translate(0,0);} 
+}
+
+@keyframes moveBg2 {
+  0% {transform:translate(0,0);} 
+  50% {transform:translate(30%,-20%);} 
+  100% {transform:translate(0,0);} 
+}
+
 nav {
   display:flex;
   justify-content:center;
@@ -17,11 +50,8 @@ nav {
   padding:15px;
 }
 
-nav a {
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-}
+nav a {color:#fff;text-decoration:none;font-weight:bold;transition:0.3s;}
+nav a:hover {color:#ff00cc;}
 
 header {
   padding:20px;
@@ -45,7 +75,15 @@ header {
   100% {background-position:0% 50%;}
 }
 
-.section {padding:40px 20px;text-align:center;}
+.banner h1 {font-size:42px;animation:fadeUp 1.5s ease;}
+.banner p {animation:fadeUp 2s ease;}
+
+@keyframes fadeUp {
+  from {opacity:0; transform:translateY(20px);} 
+  to {opacity:1; transform:translateY(0);} 
+}
+
+.section {padding:50px 20px;text-align:center;}
 
 .produtos {
   display:flex;
@@ -61,6 +99,7 @@ header {
   width:210px;
   position:relative;
   transition:0.3s;
+  animation:fadeUp 1s ease;
 }
 
 .card:hover {transform:scale(1.07);box-shadow:0 0 30px #ff00cc;}
@@ -85,13 +124,12 @@ header {
   text-decoration:none;
   display:inline-block;
   margin-top:8px;
+  transition:0.3s;
 }
 
-footer {
-  background:#111;
-  text-align:center;
-  padding:20px;
-}
+.btn:hover {background:#1ebe5d;}
+
+footer {background:#111;text-align:center;padding:20px;}
 
 .whatsapp {
   position:fixed;
@@ -102,6 +140,13 @@ footer {
   border-radius:50%;
   color:#fff;
   text-decoration:none;
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {transform:scale(1);} 
+  50% {transform:scale(1.15);} 
+  100% {transform:scale(1);} 
 }
 
 </style>
@@ -121,7 +166,7 @@ footer {
 
 <div id="home" class="banner">
 <h1>OS MAIS BRABOS DE SP 💨</h1>
-<p>Qualidade premium • Entrega rápida</p>
+<p>Qualidade premium • Entrega rápida • Confiança total</p>
 </div>
 
 <div id="produtos" class="section">
@@ -142,13 +187,6 @@ footer {
 <a class="btn" href="https://wa.me/5511948386280">Comprar</a>
 </div>
 
-</div>
-</div>
-
-<div id="lancamentos" class="section">
-<h2>🚀 Lançamentos</h2>
-<div class="produtos">
-
 <div class="card">
 <img src="geekbar.jpg">
 <h3>Geek Bar</h3>
@@ -164,17 +202,26 @@ footer {
 </div>
 </div>
 
+<div id="lancamentos" class="section">
+<h2>🚀 Lançamentos</h2>
+<p>Novos produtos chegando em breve... 👀</p>
+</div>
+
 <div id="sobre" class="section">
 <h2>💨 Sobre nós</h2>
-<p>Especialistas em pods premium com entrega rápida em SP.</p>
+<p>
+A Infinity Pods SP nasceu com o objetivo de trazer os melhores pods do mercado com qualidade premium e entrega rápida em toda São Paulo. Trabalhamos apenas com produtos selecionados, focando em desempenho, durabilidade e experiência.
+<br><br>
+Nosso compromisso é oferecer confiança total para nossos clientes, com atendimento rápido e suporte direto pelo WhatsApp. Estamos sempre atualizando nosso catálogo com os modelos mais desejados e lançamentos do momento.
+<br><br>
+Se você busca qualidade, agilidade e um atendimento diferenciado, você está no lugar certo.
+</p>
 </div>
 
 <div id="contato" class="section">
 <h2>📲 Contato</h2>
 <p>WhatsApp: (11) 94838-6280</p>
-<p>
-<a href="https://www.instagram.com/infinitypodssp?igsh=MWp4dzZhNDdtaHM2aA%3D%3D&utm_source=qr" target="_blank" style="color:#ff00cc;">📸 Nosso Instagram</a>
-</p>
+<p><a href="https://www.instagram.com/infinitypodssp" target="_blank" style="color:#ff00cc;">📸 Nosso Instagram</a></p>
 </div>
 
 <footer>
